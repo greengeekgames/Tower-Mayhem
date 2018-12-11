@@ -8,6 +8,7 @@ public class EditSnap : MonoBehaviour
   
 
     [SerializeField] [Range(0f, 20f)] float gridsize = 10f;
+    TextMesh textmesh;
     void Update()
     {
         Vector3 snappos;
@@ -15,5 +16,8 @@ public class EditSnap : MonoBehaviour
         snappos.z = Mathf.RoundToInt(transform.position.z / gridsize) * 10f;
 
         transform.position = new Vector3(snappos.x, 0f, snappos.z);
+
+        textmesh = GetComponentInChildren<TextMesh>();
+        textmesh.text = "("+snappos.x + "," + snappos.z+")";
     }
 }
