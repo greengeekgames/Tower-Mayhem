@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [ExecuteInEditMode]
+[SelectionBase]
 public class EditSnap : MonoBehaviour
 {
   
@@ -18,6 +19,8 @@ public class EditSnap : MonoBehaviour
         transform.position = new Vector3(snappos.x, 0f, snappos.z);
 
         textmesh = GetComponentInChildren<TextMesh>();
-        textmesh.text = "("+snappos.x + "," + snappos.z+")";
+        string label= "(" + snappos.x/10 + "," + snappos.z/10 + ")";
+        textmesh.text = label;
+        gameObject.name = label;
     }
 }
