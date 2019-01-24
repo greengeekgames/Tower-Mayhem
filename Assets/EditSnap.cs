@@ -8,6 +8,7 @@ using UnityEngine;
 
 public class EditSnap : MonoBehaviour
 {
+    
     Vector3 snappos;
     Waypoint waypoint;
 

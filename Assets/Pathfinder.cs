@@ -5,17 +5,25 @@ using UnityEngine;
 
 public class Pathfinder : MonoBehaviour
 {
-    Dictionary <Vector2Int, waypoint> grid=new Dictionary<Vector2Int,waypoint>();
+    [SerializeField] Waypoint start, end;
+
+    Dictionary <Vector2Int, Waypoint> grid=new Dictionary<Vector2Int, Waypoint>();
     // Start is called before the first frame update
     void Start()
     {
         LoadBlocks();
+        ColorStartandEnd();
+    }
 
+    private void ColorStartandEnd()
+    {
+        start.Settopcolour(Color.magenta);
+        end.Settopcolour(Color.red);
     }
 
     private void LoadBlocks()
     {
-        var waypoints = FindObjectOfType<Waypoint>();
+        var waypoints = FindObjectsOfType<Waypoint>();
         foreach(Waypoint waypoint in waypoints)
         {            
             bool isOverlap = grid.ContainsKey(waypoint.GetGridPos());
@@ -27,6 +35,7 @@ public class Pathfinder : MonoBehaviour
             else
             {
                 grid.Add(waypoint.GetGridPos(), waypoint);
+              //  waypoint.Settopcolour(Color.magenta);
             }
             print(grid.Count);
         }
