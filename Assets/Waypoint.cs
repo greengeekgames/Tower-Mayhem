@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Waypoint : MonoBehaviour
 {
+    [SerializeField] Color color;
+    public bool isExplored = false;
+    public Waypoint exploredfrom;
     Vector2Int gridpos;
     const int gridsize = 10;
     // Start is called before the first frame update

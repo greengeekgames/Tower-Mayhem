@@ -25,7 +25,7 @@ public class EditSnap : MonoBehaviour
 
     private void updatelabel()
     {
-        int gridsize = waypoint.GetGridSize();
+       int gridsize = waypoint.GetGridSize();
         TextMesh textmesh = GetComponentInChildren<TextMesh>();
         string label = "(" + waypoint.GetGridPos().x/ gridsize *10+ "," + waypoint.GetGridPos().y/ gridsize*10 + ")";
         textmesh.text = label;

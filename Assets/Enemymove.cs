@@ -8,13 +8,15 @@ public class Enemymove : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    [SerializeField] List<Waypoint> path;
+   //[SerializeField] List<Waypoint> path;
     void Start()
     {
-        StartCoroutine(FollowPath());
+        Pathfinder pathfinder = FindObjectOfType<Pathfinder>();
+        var path = pathfinder.GetPath();
+        StartCoroutine(FollowPath(path));
     }
 
-        IEnumerator FollowPath()
+        IEnumerator FollowPath(List <Waypoint> path)
         {
             print("Starting patrol");
         foreach (Waypoint waypoint in path)
