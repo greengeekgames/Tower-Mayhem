@@ -11,8 +11,8 @@ public class Enemymove : MonoBehaviour
    //[SerializeField] List<Waypoint> path;
     void Start()
     {
-        Pathfinder pathfinder = FindObjectOfType<Pathfinder>();
-        var path = pathfinder.GetPath();
+      Pathfinder pathfinder = FindObjectOfType<Pathfinder>();
+      var path = pathfinder.GetPath();
         StartCoroutine(FollowPath(path));
     }
 
@@ -23,7 +23,7 @@ public class Enemymove : MonoBehaviour
         {
             transform.position = waypoint.transform.position;
             print("visiting:" + waypoint);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
         }
             print("ending patrol");
         }
