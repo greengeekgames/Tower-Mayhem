@@ -12,7 +12,8 @@ public class Waypoint : MonoBehaviour
     Vector2Int gridpos;
     const int gridsize = 10;
 
-    [SerializeField] Tower towerprefab;
+   // public Waypoint Basewaypoint=null;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,9 +47,8 @@ public class Waypoint : MonoBehaviour
         {
             if(isplaceable)
             {
-                transform.position =new Vector3 (transform.position.x, transform.position.y + 5, transform.position.z);
-                Instantiate(towerprefab, transform.position, Quaternion.identity);
-                isplaceable = false;
+                FindObjectOfType<Towerfactory>().Addtower(this);
+                //isplaceable = false;
             }
             else
             {
@@ -64,3 +64,4 @@ public class Waypoint : MonoBehaviour
         
     }
 }
+

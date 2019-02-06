@@ -64,9 +64,9 @@ public class Pathfinder : MonoBehaviour
         Waypoint previous = end.exploredfrom;
         while (previous != start)
         {
+            setaspath(previous);
             previous = previous.exploredfrom;
             //path.Add(previous);
-            setaspath(previous);
             //previous.isplaceable = false;
             
         }
