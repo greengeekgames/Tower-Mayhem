@@ -6,9 +6,13 @@ public class Waypoint : MonoBehaviour
 {
     [SerializeField] Color color;
     public bool isExplored = false;
+    public bool isplaceable = true;
+
     public Waypoint exploredfrom;
     Vector2Int gridpos;
     const int gridsize = 10;
+
+    [SerializeField] Tower towerprefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +38,25 @@ public class Waypoint : MonoBehaviour
         MeshRenderer topmr = transform.Find("Top").GetComponent<MeshRenderer>();
         topmr.material.color = color;
 
+    }
+
+    void OnMouseOver()
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+            if(isplaceable)
+            {
+                transform.position =new Vector3 (transform.position.x, transform.position.y + 5, transform.position.z);
+                Instantiate(towerprefab, transform.position, Quaternion.identity);
+                isplaceable = false;
+            }
+            else
+            {
+                print("can't place here");
+            }
+        }
+            
+       // print("hello");
     }
 
     void Update()
